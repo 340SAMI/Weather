@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather — Modern Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-anim"></div>
+
+  <div class="app">
+    <header class="app__header">
+      <h1 class="brand">
+        <span class="brand__logo">☀</span>
+        <span>SkyNow</span>
+      </h1>
+
+      <div class="controls">
+        <div class="search">
+          <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 015.906 12.139l3.228 3.227a1 1 0 01-1.415 1.415l-3.227-3.228A7.5 7.5 0 1110.5 3zm0 2a5.5 5.5 0 100 11 5.5 5.5 0 000-11z"/></svg>
+          <input id="cityInput" class="search__input" type="text" placeholder="Search city e.g. Dhaka" />
+          <button id="searchBtn" class="btn">Search</button>
+        </div>
+        <button id="unitToggle" class="chip" title="Toggle °C/°F">°C</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section id="hero" class="card hero skeleton">
+        <div class="hero__left">
+          <div id="heroCity" class="hero__city">—</div>
+          <div class="hero__temp-row">
+            <div id="heroTemp" class="hero__temp">--</div>
+            <div id="heroUnit" class="hero__unit">°C</div>
+          </div>
+          <div id="heroCond" class="hero__cond chip chip--soft">—</div>
+        </div>
+        <div class="hero__right">
+          <div id="weatherIcon" class="hero__icon"></div>
+        </div>
+        <div class="loader" id="loader" aria-live="polite">
+          <div class="spinner"></div>
+          <span>Fetching weather…</span>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card stat">
+          <div class="stat__label">Feels like</div>
+          <div id="statFeels" class="stat__value">--</div>
+        </article>
+        <article class="card stat">
+          <div class="stat__label">Humidity</div>
+          <div id="statHumidity" class="stat__value">--</div>
+        </article>
+        <article class="card stat">
+          <div class="stat__label">Wind</div>
+          <div id="statWind" class="stat__value">--</div>
+        </article>
+        <article class="card stat">
+          <div class="stat__label">Sunrise</div>
+          <div id="statSunrise" class="stat__value">--</div>
+        </article>
+        <article class="card stat">
+          <div class="stat__label">Sunset</div>
+          <div id="statSunset" class="stat__value">--</div>
+        </article>
+      </section>
+
+      <section id="errorBar" class="error" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 7h2v6h-2V7zm0 8h2v2h-2v-2z"/><path d="M1 21h22L12 2 1 21z"/></svg>
+        <span id="errorMessage">Something went wrong.</span>
+        <button id="dismissError" class="chip chip--outline">Dismiss</button>
+      </section>
+    </main>
+
+    <footer class="app__footer">
+      <span class="muted">Powered by OpenWeatherMap • Built for demos</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
